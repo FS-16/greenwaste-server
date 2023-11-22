@@ -17,6 +17,11 @@ db.once('open', () => console.log('Database Connected to MongoDB'));
 app.use(cors());
 app.use(express.json());
 
+app.all('/', (req, res) => {
+  console.log('Welcome To Api GreenWaste!');
+  res.send('Welcome To Api GreenWaste!');
+});
+
 app.get('/api', (req, res) => {
   try {
     const successMessage = 'API Response Success!';
