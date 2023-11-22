@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoute from './routes/UserRoute.js';
+import questionRoute from './routes/QuestionRoute.js';
 import cors from 'cors';
 
 const app = express();
@@ -32,6 +33,8 @@ app.get('/api', (req, res) => {
   }
 });
 
+// API ROUTE
 app.use('/api', userRoute);
+app.use('/api', questionRoute);
 
 app.listen(5000, () => console.log('Server berjalan...'));
