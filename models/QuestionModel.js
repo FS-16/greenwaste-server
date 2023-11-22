@@ -16,13 +16,13 @@ const questionSchema = new mongoose.Schema(
     },
     category: [
       {
-        label1: String,
+        value: String,
       },
       {
-        label2: String,
+        value: String,
       },
       {
-        label3: String,
+        value: String,
       },
     ],
     comments: [{ desc: String, date: Date }],
