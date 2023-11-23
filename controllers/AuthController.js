@@ -29,7 +29,7 @@ export const login = async (req, res, next) => {
       .cookie('token_access', token, {
         httpOnly: true,
         // Expire date cookie
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+        // expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
       })
       .status(200)
       .json(rest);
