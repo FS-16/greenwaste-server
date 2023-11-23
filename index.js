@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoute from './routes/UserRoute.js';
+import authRoute from './routes/AuthRoute.js';
 import questionRoute from './routes/QuestionRoute.js';
 import cors from 'cors';
 
@@ -16,6 +17,8 @@ db.on('error', (error) => console.log(error));
 db.once('open', () => console.log('Database Connected to MongoDB'));
 
 app.use(cors());
+
+// EXPRESS.JSON ALLOW TO RESPONSE JSON
 app.use(express.json());
 
 app.all('/', (req, res) => {
@@ -36,5 +39,6 @@ app.get('/api', (req, res) => {
 // API ROUTE
 app.use('/api', userRoute);
 app.use('/api', questionRoute);
+app.use('/api/auth', authRoute);
 
 app.listen(5000, () => console.log('Server berjalan...'));
