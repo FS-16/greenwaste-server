@@ -1,6 +1,6 @@
-import User from "../models/UserModel.js";
-import { errorHandler } from "../utils/error.js";
-import bcryptjs from "bcryptjs";
+import User from '../models/UserModel.js';
+import { errorHandler } from '../utils/error.js';
+import bcryptjs from 'bcryptjs';
 
 // GET ALL USERS
 export const getUsers = async (req, res) => {
@@ -36,7 +36,7 @@ export const createUser = async (req, res) => {
 // UPDATED USER
 export const updatedUser = async (req, res, next) => {
   if (req.user.id !== req.params.id)
-    return next(errorHandler(401, "You can only update you own account"));
+    return next(errorHandler(401, 'You can only update you own account'));
 
   try {
     if (req.body.password) {
@@ -47,7 +47,7 @@ export const updatedUser = async (req, res, next) => {
       req.params.id,
       {
         $set: {
-          name: req.body.name,
+          username: req.body.username,
           email: req.body.email,
           password: req.body.password,
         },
