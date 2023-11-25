@@ -1,4 +1,6 @@
-import User from '../models/UserModel.js';
+import User from "../models/UserModel.js";
+import { errorHandler } from "../utils/error.js";
+import bcryptjs from "bcryptjs";
 
 // GET ALL USERS
 export const getUsers = async (req, res) => {
@@ -32,15 +34,32 @@ export const createUser = async (req, res) => {
 };
 
 // UPDATED USER
-export const updatedUser = async (req, res) => {
+export const updatedUser = async (req, res, next) => {
+  if (req.user.id !== req.params.id)
+    return next(errorHandler(401, "You can only update you own account"));
+
   try {
-    const updateduser = await User.updateOne(
-      { _id: req.params.id },
-      { $set: req.body }
+    if (req.body.password) {
+      req.body.password = bcryptjs.hashSync(req.body.password, 10);
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password,
+        },
+      },
+      { new: true }
     );
-    res.status(200).json(updateduser);
+
+    const { password, ...rest } = updatedUser._doc;
+
+    res.status(200).json(rest);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
