@@ -20,14 +20,13 @@ export const getQuestionById = async (req, res) => {
   }
 };
 
-// CREATED NEW USER
-export const createQuestion = async (req, res) => {
-  const question = new Question(req.body);
+// CREATED NEW QUESTION
+export const createQuestion = async (req, res, next) => {
   try {
-    const createquestion = await question.save();
-    res.status(201).json(createquestion);
+    const question = await Question.create(req.body);
+    return res.status(201).json(question);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
