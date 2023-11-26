@@ -4,11 +4,11 @@ import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
 export const register = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { username, email, password } = req.body;
   //HASH PASSWORD
   const hashedPassword = bcryptjs.hashSync(password, 10);
   // CREATE NEW USER
-  const newUser = new User({ name, email, password: hashedPassword });
+  const newUser = new User({ username, email, password: hashedPassword });
 
   try {
     await newUser.save();
@@ -33,7 +33,7 @@ export const login = async (req, res, next) => {
     // REMOVE PASSWORD when TO SEND CLIENT
     const { password: pass, ...rest } = validUser._doc;
 
-    res.cookie('token_access', token, { httOnly: true }).status(200).json(rest);
+    res.cookie('access_token', token, { httOnly: true }).status(200).json(rest);
   } catch (error) {
     next(error);
   }
