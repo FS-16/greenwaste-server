@@ -23,6 +23,10 @@ const questionSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    userRef: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

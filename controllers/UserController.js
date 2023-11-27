@@ -1,3 +1,4 @@
+import Question from '../models/QuestionModel.js';
 import User from '../models/UserModel.js';
 import { errorHandler } from '../utils/error.js';
 import bcryptjs from 'bcryptjs';
@@ -73,5 +74,18 @@ export const deletedUser = async (req, res, next) => {
     res.status(200).json('User has been deleted');
   } catch (error) {
     next(error);
+  }
+};
+
+export const getUserQuestion = async (req, res, next) => {
+  if (req.user.id === req.params.id) {
+    try {
+      const question = await Question.find({ author: req.params.id });
+      res.status(200).json(question);
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    return next(errorHandler(401, 'You can only view your own question'));
   }
 };

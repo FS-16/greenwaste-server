@@ -15,6 +15,6 @@ router.get('/questions', getQuestions);
 router.get('/questions/:id', getQuestionById);
 router.post('/questions', verifyToken, createQuestion);
 router.patch('/questions/:id', updatedQuestion);
-router.delete('/questions/:id', deletedQuestion);
+router.get('/questions/:id', deletedQuestion);
 
 export default router;
