@@ -14,17 +14,10 @@ const questionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    category: [
-      {
-        value: String,
-      },
-      {
-        value: String,
-      },
-      {
-        value: String,
-      },
-    ],
+    category: {
+      type: Array,
+      required: true,
+    },
     comments: [{ desc: String, date: Date }],
     date: {
       type: Date,
