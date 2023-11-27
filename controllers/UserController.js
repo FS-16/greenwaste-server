@@ -80,12 +80,12 @@ export const deletedUser = async (req, res, next) => {
 export const getUserQuestion = async (req, res, next) => {
   if (req.user.id === req.params.id) {
     try {
-      const question = await Question.find({ author: req.params.id });
+      const question = await Question.find({ userRef: req.params.id });
       res.status(200).json(question);
     } catch (error) {
       next(error);
     }
   } else {
-    return next(errorHandler(401, 'You can only view your own question'));
+    return next(errorHandler(401, 'You can only view your own question!'));
   }
 };
