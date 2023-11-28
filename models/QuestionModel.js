@@ -18,7 +18,12 @@ const questionSchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
-    comments: [{ desc: String, date: Date }],
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment',
+      },
+    ],
     date: {
       type: Date,
       default: Date.now,
