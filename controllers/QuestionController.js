@@ -1,4 +1,5 @@
 import Question from '../models/QuestionModel.js';
+import { errorHandler } from '../utils/error.js';
 
 // GET ALL QUESTION
 export const getQuestions = async (req, res) => {
@@ -44,11 +45,20 @@ export const updatedQuestion = async (req, res) => {
 };
 
 //DELETED QUESTION
-export const deletedQuestion = async (req, res) => {
+export const deletedQuestion = async (req, res, next) => {
+  const question = await Question.findById(req.params.id);
+  if (!question) {
+    return next(errorHandler(404, 'Question not found'));
+  }
+
+  if (req.user.id !== question.userRef) {
+    return next(errorHandler(401, 'You can only delete your own question'));
+  }
+
   try {
-    const deletedquestion = await Question.deleteOne({ _id: req.params.id });
-    res.status(200).json(deletedquestion);
+    await Question.findByIdAndDelete(req.params.id);
+    res.status(200).json('Question has been deleted');
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
