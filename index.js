@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoute from './routes/UserRoute.js';
 import authRoute from './routes/AuthRoute.js';
 import commentRoute from './routes/CommentRoute.js';
+import contactRoute from './routes/ContactRoute.js';
 import questionRoute from './routes/QuestionRoute.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -45,6 +46,7 @@ app.get('/api', (req, res) => {
 app.use('/api', userRoute);
 app.use('/api', questionRoute);
 app.use('/api', commentRoute);
+app.use('/api', contactRoute);
 app.use('/api/auth', authRoute);
 
 // Middleware Handle Error message
