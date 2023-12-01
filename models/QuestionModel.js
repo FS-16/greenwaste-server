@@ -14,21 +14,23 @@ const questionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    category: [
+    category: {
+      type: Array,
+      required: true,
+    },
+    comments: [
       {
-        value: String,
-      },
-      {
-        value: String,
-      },
-      {
-        value: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment',
       },
     ],
-    comments: [{ desc: String, date: Date }],
     date: {
       type: Date,
       default: Date.now,
+    },
+    userRef: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
