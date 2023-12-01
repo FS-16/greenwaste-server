@@ -4,6 +4,11 @@ import dotenv from 'dotenv';
 import userRoute from './routes/UserRoute.js';
 import authRoute from './routes/AuthRoute.js';
 import questionRoute from './routes/QuestionRoute.js';
+import SolutionKomposRoute from './routes/SolutionKomposRoute.js'
+import SolutionDaurRoute from './routes/SolutionDaurRoute.js'
+import SolutionProdukRoute from './routes/SolutionProdukRoute.js'
+import BeritaTerkiniRoute from './routes/BeritaTerkiniRoute.js'
+import BeritaRekomendasiRoute from './routes/BeritaRekomendasiRoute.js'
 import cors from 'cors';
 
 const app = express();
@@ -39,6 +44,11 @@ app.get('/api', (req, res) => {
 // API ROUTE
 app.use('/api', userRoute);
 app.use('/api', questionRoute);
+app.use('/api', SolutionKomposRoute);
+app.use('/api', SolutionDaurRoute);
+app.use('/api', SolutionProdukRoute);
+app.use('/api', BeritaTerkiniRoute);
+app.use('/api', BeritaRekomendasiRoute);
 app.use('/api/auth', authRoute);
 
 // Middleware Handle Error message
