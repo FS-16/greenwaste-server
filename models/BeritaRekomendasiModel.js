@@ -17,7 +17,6 @@ const rekomendasiSchema = new mongoose.Schema(
         category: {
             type: String,
             require: true,
-            unique: true,
         },
 
         contentInfo: {
