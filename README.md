@@ -16,7 +16,7 @@
 
 
 ## Endpoint Utama
-Base URL: https://greenwaste-api.vercel.app/api/
+Base URL: https://api-greenwaste.vercel.app/
 
 
 ## Endpoints
