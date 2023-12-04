@@ -6,11 +6,12 @@ import authRoute from './routes/AuthRoute.js';
 import commentRoute from './routes/CommentRoute.js';
 import contactRoute from './routes/ContactRoute.js';
 import questionRoute from './routes/QuestionRoute.js';
-import SolutionKomposRoute from './routes/SolutionKomposRoute.js'
-import SolutionDaurRoute from './routes/SolutionDaurRoute.js'
-import SolutionProdukRoute from './routes/SolutionProdukRoute.js'
-import BeritaTerkiniRoute from './routes/BeritaTerkiniRoute.js'
-import BeritaRekomendasiRoute from './routes/BeritaRekomendasiRoute.js'
+import SolutionKomposRoute from './routes/SolutionKomposRoute.js';
+import SolutionDaurRoute from './routes/SolutionDaurRoute.js';
+import SolutionProdukRoute from './routes/SolutionProdukRoute.js';
+import BeritaTerkiniRoute from './routes/BeritaTerkiniRoute.js';
+import BeritaRekomendasiRoute from './routes/BeritaRekomendasiRoute.js';
+import isAdminRoute from './routes/IsAdminRoute.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
@@ -58,6 +59,7 @@ app.use('/api', SolutionProdukRoute);
 app.use('/api', BeritaTerkiniRoute);
 app.use('/api', BeritaRekomendasiRoute);
 app.use('/api/auth', authRoute);
+app.use('/api', isAdminRoute);
 
 // Middleware Handle Error message
 app.use((err, req, res, next) => {
