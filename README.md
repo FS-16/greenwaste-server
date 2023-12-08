@@ -27,7 +27,13 @@ Base URL: https://api-greenwaste.vercel.app/
 
 
 ## Endpoints
-
+No      | /api/question          |      /api/users   |  /api/auth          |
+|:-----:|------------------------|-------------------|---------------------|
+|1      | GET /questions         | GET /users        | POST /auth/register |
+|2      | GET /questions/:id     | GET /users/:id    | POST /auth/login    |
+|3      | POST /questions        | POST /users       |                     |
+|4      | PATCH /questions/:id   | PATCH /users/:id  |                     |
+|5      | DELETE /questions/:id  | DELETE /users/:id |                     |
 
 
 ## Jump to
