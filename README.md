@@ -39,10 +39,10 @@ No      | /api/question          |      /api/users   |  /api/auth          |
 ## Jump to
 - [/api/todos](#apiquestions)
   - [1. GET /questions](#1-get-questions)
-  - [2. GET /questions/:id](#2-get-questionid)
+  - [2. GET /questions/:id](#2-get-questionsid)
   - [3. POST /questions](#3-post-questions)
-  - [4. PATCH /questions/:id](#4-patch-questionid)
-  - [5. DELETE /questions/:id](#5-delete-questionid)
+  - [4. PATCH /questions/:id](#4-patch-questionsid)
+  - [5. DELETE /questions/:id](#5-delete-questionsid)
   
 
 <br>
