@@ -85,3 +85,98 @@ Status: 200 OK ✔️
 <hr>
 
 
+### 2. GET /questions/:id
+<details open>
+	<summary><b>Mendapatkan question berdasarkan id : </b></summary>
+
+   - Metode : GET
+   - Endpoint : /questions/:id
+   - Deskripsi : Mendapatkan question tertentu berdasarkan id.
+ 
+**Contoh HTTP Request :**
+```
+GET https://api-greenwaste.vercel.app/api/questions/6565e77e931157a4c65bf9ca
+```
+
+**Contoh Respons :**
+```json
+Status: 200 OK ✔️
+[
+  {
+      "_id": "6565e77e931157a4c65bf9ca",
+      "title": "Bagaimana membuat limbah rumah tangga menjadi produk yang berkualitas ?",
+      "author": "Budi",
+      "description": "Apa langkah-langkah yang dapat diambil untuk mengubah limbah elektronik rumah tangga menjadi produk elektronik yang bisa digunakan kembali atau didaur ulang dengan efisien?",
+      "category": [
+        "limbah Anorganik",
+        "limbah Organik"
+      ],
+      "userRef": "6565e6a5931157a4c65bf9c3",
+      "comments": [],
+      "date": "2023-11-28T13:13:34.292Z",
+      "createdAt": "2023-11-28T13:13:34.293Z",
+      "updatedAt": "2023-11-28T13:13:34.293Z",
+      "__v": 0
+  },
+]
+```
+</details>
+
+
+<hr>
+
+### 3. POST /questions
+<details open>
+	<summary><b>Menambahkan question : </b></summary>
+	
+   - Metode : POST
+   - Endpoint : /questions
+   - Deskripsi : Add atau menambahkan question baru.
+
+**Contoh HTTP Request :**
+```
+POST https://api-todo-koreoxy.vercel.app/api/questions
+Content-Type: application/json
+{
+  "title": "Question Baru",
+  "author": username,
+  "description": "description baru",
+   "category": [
+        "limbah Anorganik",
+        "limbah Organik"
+    ],
+  "userRef": "6565e6a5931157a4c65bf9c3",
+  "comments": [],
+}
+```
+
+> [!NOTE]
+> data `"userRef"` dan  `"comments"` optional, data tersebut boleh diisi dan boleh tidak.
+
+<br>
+
+**Contoh Respons :**
+```json
+Status: 201 Created ✔️
+[
+  {
+      "title": "1",
+      "author": "1",
+      "description": "1",
+      "category": [
+          "limbah Anorganik",
+          "limbah Organik"
+      ],
+      "comments": [],
+      "userRef": "6565e6a5931157a4c65bf9c3",
+      "_id": "656efccaf382c26f55049264",
+      "date": "2023-12-05T10:34:50.661Z",
+      "createdAt": "2023-12-05T10:34:50.661Z",
+      "updatedAt": "2023-12-05T10:34:50.661Z",
+      "__v": 0
+  }
+]
+```
+</details>
+
+<hr>
