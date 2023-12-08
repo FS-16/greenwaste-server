@@ -37,7 +37,12 @@ No      | /api/question          |      /api/users   |  /api/auth          |
 
 
 ## Jump to
-
+- [/api/todos](#apiquestions)
+  - [1. GET /questions](#1-get-questions)
+  - [2. GET /questions/:id](#2-get-questionid)
+  - [3. POST /questions](#3-post-questions)
+  - [4. PATCH /questions/:id](#4-patch-questionid)
+  - [5. DELETE /questions/:id](#5-delete-questionid)
   
 
 <br>
@@ -178,5 +183,67 @@ Status: 201 Created ✔️
 ]
 ```
 </details>
+
+<hr>
+
+
+### 4. PATCH /questions/:id
+<details open>
+	<summary><b>Update question : </b></summary>
+	
+   - Metode : PATCH
+   - Endpoint : /questions/:id
+   - Deskripsi : Update atau memperbarui question.
+
+**Contoh HTTP Request :**
+```
+PATCH https://api-greenwaste.vercel.app/api/questions/6565e77e931157a4c65bf9ca
+Content-Type: application/json
+{
+  "title": "Update question title",
+  "description": "update description question",
+}
+```
+
+**Contoh Respons :**
+```json
+Status: 200 OK ✔️
+{
+  "acknowledged": true,
+  "modifiedCount": 1,
+  "upsertedId": null,
+  "upsertedCount": 0,
+  "matchedCount": 1
+}
+```
+</details>
+
+
+<hr>
+
+
+### 5. DELETE /questions/:id
+<details open>
+	<summary><b>Delete question : </b></summary>
+	
+   - Metode : DELETE
+   - Endpoint : /questions/:id
+   - Deskripsi : Delete atau menghapus question.
+
+**Contoh HTTP Request :**
+```
+DELETE https://api-greenwaste.vercel.app/api/questions/6565e77e931157a4c65bf9ca
+```
+
+**Contoh Respons :**
+```json
+Status: 200 OK ✔️
+{
+  "acknowledged": true,
+  "deletedCount": 1
+}
+```
+</details>
+
 
 <hr>
